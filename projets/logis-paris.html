@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les Plus Beaux Logis de Paris, prédire et classer pour décider vite – Paul Chipponi</title>
+<meta name="description" content="Valoriser un portefeuille immobilier et automatiser le tri des opportunités, en repérant un retournement de marché masqué par la tendance.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<header class="entete"><div class="enveloppe">
+<a class="marque" href="../index.html">Paul Chipponi</a>
+<nav class="navigation" aria-label="Navigation principale"><a href="../index.html#projets">Projets</a><a href="../index.html#competences">Compétences</a><a href="../veille.html">Veille</a><a href="https://github.com/PaulChipponi">GitHub</a></nav>
+</div></header>
+<main id="contenu" class="enveloppe">
+<article class="article">
+<a class="retour" href="../index.html#projets">Retour aux projets</a>
+<h1>Les Plus Beaux Logis de Paris, prédire et classer pour décider vite</h1>
+<p class="chapeau">Projet 8 du parcours. Python, pandas, scikit-learn, régression linéaire, K-Means.</p>
+<h2>Contexte et besoin métier</h2>
+<p>Les Plus Beaux Logis de Paris, entreprise familiale d’achat-revente immobilière, devait dégager rapidement de la trésorerie en cédant une partie de son portefeuille, sans savoir lequel de ses deux segments, particuliers ou corporate, sacrifier. Dans un second temps, la directrice du pôle corporate voulait classer automatiquement les opportunités d’achat entre logements et locaux commerciaux, une qualification que ses conseillers faisaient jusque-là par téléphone.</p>
+<h2>Données</h2>
+<p>L’historique des transactions immobilières parisiennes de 2017 à 2021, le portefeuille de 275 actifs de l’entreprise, puis un échantillon de 40 biens à classer, transmis par l’équipe corporate.</p>
+<h2>Démarche</h2>
+<p>J’ai d’abord analysé l’évolution des prix par segment, puis entraîné une régression linéaire pour projeter la valeur du portefeuille. L’analyse a révélé un piège : sur l’ensemble de la période, le modèle calculait une hausse d’environ 250 €/m² par an, alors que les prix reculaient depuis 2020. J’ai donc fondé la projection sur la seule période récente.</p>
+<p>Pour la classification, j’ai créé un ratio rapportant le prix de chaque bien à la moyenne de son arrondissement, afin de neutraliser l’effet quartier, avant d’appliquer un algorithme de segmentation K-Means, dont le nombre de groupes a été choisi par le score de silhouette.</p><figure><img src="../assets/img/logis-segments.jpg" alt="Deux graphiques de prix au mètre carré, pour les particuliers et le corporate, avec la tendance recalculée après 2020." loading="lazy" width="1600" height="900"><figcaption>Deux segments, deux réalités : le marché des particuliers recule nettement depuis 2020, celui du corporate résiste.</figcaption></figure>
+<h2>Résultats et impact</h2>
+<p>Le portefeuille corporate, valorisé à 92 M€, résiste nettement mieux que celui des particuliers, estimé à 64 M€ et en baisse plus rapide, ce qui a conduit à recommander de céder une partie des actifs particuliers. Le modèle de classification distingue logements et locaux commerciaux avec 99,9 % de concordance sur 5 068 transactions, et il a trié les 40 biens de l’échantillon en moins d’une seconde, là où il fallait des dizaines d’appels.</p><figure><img src="../assets/img/logis-valorisation.jpg" alt="Diapositive de valorisation du portefeuille au 1er janvier 2023 : 64 millions d’euros pour les particuliers, 92 millions pour le corporate." loading="lazy" width="1600" height="900"><figcaption>La valorisation du portefeuille, à partir des prix observés après 2020.</figcaption></figure>
+<h2 class="limites">Limites et prochaines pistes</h2>
+<p>La prévision repose sur une tendance linéaire, avec une marge d’erreur d’environ 10 %, et la classification sur deux seules variables, la surface et le ratio de prix. Ajouter d’autres caractéristiques des biens et tester le modèle sur d’autres arrondissements que le 19e permettrait de le fiabiliser.</p>
+<nav class="suite" aria-label="Autres projets"><a href="uoi-games.html">Projet précédent : UOI Games</a><a href="sanitoral.html">Projet suivant : Sanitoral</a></nav></article>
+</main>
+<footer class="pied"><div class="enveloppe">
+<p>Portfolio réalisé dans le cadre du parcours Business Intelligence Analyst d’OpenClassrooms. Les entreprises et les données des projets sont fictives.</p>
+<p><a href="https://github.com/PaulChipponi">GitHub</a></p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sanitoral, un tableau de bord pour repérer les projets en dérive – Paul Chipponi</title>
+<meta name="description" content="Du cadrage par les user stories au modèle en étoile, un outil que l’équipe met à jour seule chaque semaine.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<header class="entete"><div class="enveloppe">
+<a class="marque" href="../index.html">Paul Chipponi</a>
+<nav class="navigation" aria-label="Navigation principale"><a href="../index.html#projets">Projets</a><a href="../index.html#competences">Compétences</a><a href="../veille.html">Veille</a><a href="https://github.com/PaulChipponi">GitHub</a></nav>
+</div></header>
+<main id="contenu" class="enveloppe">
+<article class="article">
+<a class="retour" href="../index.html#projets">Retour aux projets</a>
+<h1>Sanitoral, un tableau de bord pour repérer les projets en dérive</h1>
+<p class="chapeau">Projet 7 du parcours. Power BI, Power Query, DAX, Product Strategy Canvas.</p>
+<h2>Contexte et besoin métier</h2>
+<p>Sanitoral, groupe international de soins bucco-dentaires, voulait que son service de gestion de projets repère les retards et les dérives de ses projets IT et marketing. Le tableau de bord devait servir trois publics, du directeur général aux directeurs pays, être mis à jour chaque semaine sans intervention technique et appuyer au moins un axe stratégique.</p>
+<h2>Données</h2>
+<p>Les exports du logiciel de gestion de projets de l’entreprise, couvrant les projets menés de 2018 à début 2022 et répartis en sept tables brutes sans lien entre elles, accompagnés d’un dictionnaire des données.</p>
+<h2>Démarche</h2>
+<p>J’ai commencé par formaliser les besoins de chaque public sous forme de user stories dans un Product Strategy Canvas, validé avant toute construction. J’ai ensuite restructuré les sept tables en un modèle en étoile, avec une table de faits centrale et trois dimensions (calendrier, pays, projets), et automatisé le nettoyage dans Power Query. Le tableau de bord suit trois indicateurs, les coûts, les délais et les livrables, avec une alerte dès qu’un projet s’écarte de plus de 15 % de son prévisionnel. Un onglet documente le canvas, le modèle de données et la procédure de mise à jour.</p><figure><img src="../assets/img/sanitoral-vision-globale.jpg" alt="Page Vision globale du tableau de bord Sanitoral : indicateurs clés, carte du monde colorée selon l’état de santé des projets et filtres par région, pays et type de projet." loading="lazy" width="1600" height="900"><figcaption>La vision globale : une carte de l’état de santé des projets, filtrable par région, par pays et par type.</figcaption></figure>
+<h2>Résultats et impact</h2>
+<p>Le tableau de bord chiffre à 4,13 M€ le surcoût des projets en alerte. Il montre que les délais sont globalement tenus, voire en avance, mais que la dérive budgétaire est propre au marketing (+9 % par rapport au prévisionnel), alors que l’IT réalise des économies (−7 %). Une seule phase, la fabrication d’un lancement de produit, concentre 2,56 M€ de pertes. Les directeurs disposent ainsi d’un accès direct aux projets en dérive de leur périmètre, et l’équipe réalise seule la mise à jour, en trois étapes : remplacer les fichiers, actualiser, puis vérifier l’indicateur des projets en alerte.</p><figure><img src="../assets/img/sanitoral-derives.jpg" alt="Page Analyse des dérives : performance budgétaire et respect des délais par type de projet, avec un diagnostic rédigé." loading="lazy" width="1600" height="900"><figcaption>L’analyse des dérives : le budget dérive côté marketing, alors que les délais sont tenus partout.</figcaption></figure><figure><img src="../assets/img/sanitoral-alertes.jpg" alt="Page Focus alertes : surcoût total estimé de 4,13 millions d’euros, top 5 des projets par surcoût et répartition des pertes par phase." loading="lazy" width="1600" height="900"><figcaption>Le focus sur les alertes, qui oriente la direction vers les projets et les phases les plus coûteux.</figcaption></figure>
+<h2 class="limites">Limites et prochaines pistes</h2>
+<p>Tous les directeurs consultent aujourd’hui le même tableau de bord. La prochaine étape serait d’utiliser la gestion des rôles de Power BI pour que chacun voie automatiquement les seuls projets de sa région ou de son pays.</p>
+<nav class="suite" aria-label="Autres projets"><a href="logis-paris.html">Projet précédent : Les Plus Beaux Logis de Paris</a><a href="sportdatapulse.html">Projet suivant : SportDataPulse</a></nav></article>
+</main>
+<footer class="pied"><div class="enveloppe">
+<p>Portfolio réalisé dans le cadre du parcours Business Intelligence Analyst d’OpenClassrooms. Les entreprises et les données des projets sont fictives.</p>
+<p><a href="https://github.com/PaulChipponi">GitHub</a></p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SportDataPulse, une base de données pour recruter un attaquant – Paul Chipponi</title>
+<meta name="description" content="Une base de huit tables conçue en autonomie pour aider un club de Ligue 1 à recruter sous contrainte salariale.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<header class="entete"><div class="enveloppe">
+<a class="marque" href="../index.html">Paul Chipponi</a>
+<nav class="navigation" aria-label="Navigation principale"><a href="../index.html#projets">Projets</a><a href="../index.html#competences">Compétences</a><a href="../veille.html">Veille</a><a href="https://github.com/PaulChipponi">GitHub</a></nav>
+</div></header>
+<main id="contenu" class="enveloppe">
+<article class="article">
+<a class="retour" href="../index.html#projets">Retour aux projets</a>
+<h1>SportDataPulse, une base de données pour recruter un attaquant</h1>
+<p class="chapeau">Projet 5 du parcours, prolongeant le projet 3. SQL, SQLite, modélisation relationnelle, Power Query.</p>
+<h2>Contexte et besoin métier</h2>
+<p>Un club de Ligue 1, engagé dans un championnat serré, voulait appuyer les décisions de son staff sur les données. Le directeur sportif attendait une base de données exploitable, des réponses à une série de questions sur les performances des joueurs, et une liste d’attaquants « finisseurs » à recruter avec un salaire plafonné à 3 M€ par an.</p>
+<h2>Données</h2>
+<p>Les statistiques des joueurs de Ligue 1 de la saison 2025, issues du site spécialisé FBref : buts, passes décisives, penaltys, cartons, buts attendus (xG), passes progressives, temps de jeu, ainsi que les postes, les nationalités et les salaires.</p>
+<h2>Démarche</h2>
+<p>J’ai d’abord reformulé le besoin dans une expression des besoins, pour m’assurer d’aller dans la bonne direction. Après un nettoyage préalable dans Power Query, j’ai conçu un schéma relationnel normalisé de huit tables (joueurs, équipes, postes, performances, temps de jeu, statistiques attendues, progression, salaires), puis créé et chargé la base dans SQLite. J’ai ensuite répondu aux onze questions du staff par des requêtes SQL, complétées par des analyses supplémentaires comme le coût par but, avant de formuler des recommandations sur la sauvegarde et le stockage de la base.</p>
+<h2>Résultats et impact</h2>
+<p>Le staff dispose d’une base centralisée et interrogeable, et d’une première liste de cibles de recrutement qui croise efficacité devant le but, profil de finisseur et contrainte salariale. L’évaluateur a validé le projet sans relever d’axe d’amélioration, en soulignant la clarté de l’expression des besoins et la pertinence des indicateurs de suivi proposés.</p>
+<h2 class="limites">Limites et prochaines pistes</h2>
+<p>Les données ne couvrent qu’une saison et un seul championnat, et les statistiques ne mesurent ni la forme du moment ni l’adaptation à un nouveau collectif. Élargir l’historique à plusieurs saisons et à d’autres championnats renforcerait la liste de recrutement.</p>
+<aside class="encadre"><h2>Progression : de premières requêtes au projet autonome</h2><p>Ce projet prolonge un premier exercice guidé (projet 3), dans lequel j’avais modélisé une base de deux tables sur les contrats d’un assureur habitation et rédigé mes premières requêtes : filtres, jointures et agrégations sur plus de 30 000 contrats. Le projet 5 m’a permis de passer de questions fournies et d’un schéma esquissé à une base de huit tables conçue en autonomie, au service d’une décision métier.</p></aside>
+<nav class="suite" aria-label="Autres projets"><a href="sanitoral.html">Projet précédent : Sanitoral</a><a href="dev-immediat.html">Projet suivant : Dev’Immédiat</a></nav></article>
+</main>
+<footer class="pied"><div class="enveloppe">
+<p>Portfolio réalisé dans le cadre du parcours Business Intelligence Analyst d’OpenClassrooms. Les entreprises et les données des projets sont fictives.</p>
+<p><a href="https://github.com/PaulChipponi">GitHub</a></p>
+</div></footer>
+</body>
+</html>

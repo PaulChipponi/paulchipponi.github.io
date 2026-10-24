@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Système de veille – Paul Chipponi</title>
+<meta name="description" content="Le système de veille de Paul Chipponi : sources, automatisation, critères et décisions.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<header class="entete"><div class="enveloppe">
+<a class="marque" href="index.html">Paul Chipponi</a>
+<nav class="navigation" aria-label="Navigation principale"><a href="index.html#projets">Projets</a><a href="index.html#competences">Compétences</a><a href="veille.html" aria-current="page">Veille</a><a href="https://github.com/PaulChipponi">GitHub</a></nav>
+</div></header>
+<main id="contenu" class="enveloppe">
+<article class="article">
+<h1>Système de veille</h1>
+<p class="chapeau">Sources, critères, automatisation et décisions. Système mis en place en octobre 2026.</p>
+<h2>Objectif</h2>
+<p>La veille sert à repérer les outils et les méthodes qui peuvent améliorer mon travail, à vérifier qu’une technologie que j’utilise reste fiable, et à suivre les évolutions réglementaires qui touchent les données. Elle doit rester légère : quelques minutes par semaine, sans abonnement payant ni infrastructure à maintenir.</p>
+<h2>Sources suivies</h2>
+<p>Les sources sont choisies pour leur fiabilité : éditeurs des outils, institutions et notes de version officielles, plutôt que des agrégateurs ou des réseaux sociaux.</p>
+<div class="tableau-cadre"><table class="tableau"><thead><tr><th scope="col">Thème</th><th scope="col">Source</th><th scope="col">Collecte</th></tr></thead><tbody><tr><td>BI et visualisation</td><td>Microsoft Fabric Updates Blog, qui publie désormais les nouveautés de Power BI</td><td>Flux RSS dans Feedly</td></tr><tr><td>Qualité des données</td><td>Notes de version de pandas</td><td>Flux RSS dans Feedly</td></tr><tr><td>Qualité des données</td><td>Notes de version de Pandera</td><td>Flux RSS dans Feedly</td></tr><tr><td>Accessibilité</td><td>Alerte Google « accessibilité numérique RGAA »</td><td>E-mail hebdomadaire</td></tr><tr><td>Réglementation</td><td>Alerte Google « CNIL sanction données personnelles »</td><td>E-mail hebdomadaire</td></tr><tr><td>IA</td><td>Alerte Google « Anthropic Claude »</td><td>E-mail hebdomadaire</td></tr></tbody></table></div>
+<h2>Automatisation</h2>
+<p>La collecte ne demande aucune action manuelle. Feedly, dans sa version gratuite, regroupe les flux RSS dans trois dossiers thématiques et affiche chaque nouvel article dès sa publication. Les alertes Google couvrent les sujets sans flux RSS exploitable et arrivent chaque semaine par e-mail. Ce choix est lui-même issu de la veille : la version gratuite de Feedly limite les dossiers et ne lit pas les flux Google, et j’ai préféré adapter l’organisation plutôt que de payer un abonnement.</p>
+<h2>Critères d’évaluation</h2>
+<p>Chaque information retenue est notée selon quatre critères. La fiabilité distingue une source officielle, la presse spécialisée, un blog ou une expérimentation menée moi-même. La pertinence va de 1 (culture générale) à 3 (change une décision ou une pratique). La sobriété mesure si un outil est léger, gratuit et sans infrastructure, ou au contraire lourd à installer et à maintenir. La décision, enfin, classe l’information : adoptée, à tester, à suivre ou écartée.</p>
+<h2>Résultats</h2>
+<p>Le registre de veille compte déjà plusieurs décisions concrètes, appliquées dans mes projets.</p>
+<div class="tableau-cadre"><table class="tableau"><thead><tr><th scope="col">Information</th><th scope="col">Décision</th><th scope="col">Effet sur un projet</th></tr></thead><tbody><tr><td>Pandera, bibliothèque de validation de données légère</td><td>Adoptée</td><td>Base des quinze règles de contrôle du projet BottleNeck amélioré</td></tr><tr><td>Great Expectations, cadre de validation complet</td><td>Écartée après test</td><td>Mêmes détections, mais trois fois plus de dépendances : surdimensionné pour trois fichiers mensuels</td></tr><tr><td>Génération de code de validation par ChatGPT</td><td>Adoptée avec réserve</td><td>Utile pour amorcer, mais 5 916 anomalies annoncées contre 1 170 réelles : jamais sans test</td></tr><tr><td>Sortie de pandas 3, qui change le type des colonnes de texte</td><td>À suivre</td><td>Versions figées dans le fichier de dépendances du projet</td></tr><tr><td>Le blog Power BI regroupé dans celui de Microsoft Fabric</td><td>À suivre</td><td>Source mise à jour dans Feedly</td></tr></tbody></table></div>
+<p><a href="assets/registre_de_veille.xlsx">Télécharger le registre de veille (Excel)</a></p>
+<h2>Amélioration continue</h2>
+<p>Le système fonctionne sur deux rythmes : une revue hebdomadaire de Feedly et des alertes, avec la mise à jour du registre, puis une revue trimestrielle des sources pour retirer celles qui n’apportent plus rien et en ajouter de nouvelles. La prochaine évolution envisagée est un récapitulatif hebdomadaire automatique, construit avec un outil d’automatisation comme n8n, si le volume d’informations le justifie.</p>
+<nav class="suite" aria-label="Navigation"><a href="index.html#projets">Retour aux projets</a><span></span></nav>
+</article>
+</main>
+<footer class="pied"><div class="enveloppe">
+<p>Portfolio réalisé dans le cadre du parcours Business Intelligence Analyst d’OpenClassrooms. Les entreprises et les données des projets sont fictives.</p>
+<p><a href="https://github.com/PaulChipponi">GitHub</a></p>
+</div></footer>
+</body>
+</html>

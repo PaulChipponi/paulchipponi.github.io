@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BottleNeck, de la donnée brute à la donnée fiable – Paul Chipponi</title>
+<meta name="description" content="Nettoyer les données d’un caviste, construire son outil de pilotage, puis découvrir avec l’IA ce que le premier nettoyage avait faussé.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<header class="entete"><div class="enveloppe">
+<a class="marque" href="../index.html">Paul Chipponi</a>
+<nav class="navigation" aria-label="Navigation principale"><a href="../index.html#projets">Projets</a><a href="../index.html#competences">Compétences</a><a href="../veille.html">Veille</a><a href="https://github.com/PaulChipponi">GitHub</a></nav>
+</div></header>
+<main id="contenu" class="enveloppe">
+<article class="article">
+<a class="retour" href="../index.html#projets">Retour aux projets</a>
+<h1>BottleNeck, de la donnée brute à la donnée fiable</h1>
+<p class="chapeau">Projets 6 et 9 du parcours, et projet amélioré avec l’IA. Python, pandas, Pandera, SQLite, Power Query, Power BI, DAX.</p>
+<h2>Contexte et besoin métier</h2>
+<p>BottleNeck, caviste en ligne, pilote son activité à partir de trois sources qui ne se parlent pas : son ERP, l’export de son site WordPress et une table de liaison tenue à la main. Le responsable des ventes avait besoin de chiffres fiables pour son comité de direction, puis d’un outil de pilotage pour suivre ses marges, ses stocks et ses promotions.</p>
+<h2>Données</h2>
+<p>Trois exports mensuels, soit 825 références dans l’ERP et 1 513 lignes côté site, puis une base SQLite de 22 300 lignes couvrant une année d’activité. Ces données comportaient des identifiants incompatibles entre les outils, des prix et des stocks négatifs, des lignes d’images mêlées aux produits et des descriptions polluées par du code HTML.</p>
+<h2>Démarche</h2>
+<p>Le projet s’est construit en trois temps. J’ai d’abord rapproché et nettoyé les trois exports en Python pour calculer le chiffre d’affaires, les marges et la valeur du stock, et les présenter au comité de direction.</p>
+<p>Quelques mois plus tard, j’ai comparé quatre méthodes d’accès aux données avant de retenir Power Query, puis corrigé quatre anomalies de la base (séparateur décimal, 62 % de valeurs manquantes, formats de dates incompatibles, 110 références orphelines). J’ai construit dans Power BI un tableau de bord de six pages, organisé autour des trois questions de l’entreprise : les marges, les stocks et les promotions.</p>
+<p>Enfin, en reprenant le premier projet avec l’appui de l’IA, j’ai transformé les vérifications manuelles en quinze règles de validation automatiques écrites avec Pandera. J’ai comparé le code généré par ChatGPT à une construction guidée et testée règle par règle, puis éprouvé les règles sur un export volontairement dégradé.</p><figure><img src="../assets/img/bottleneck-vue-ensemble.jpg" alt="Page de vue d’ensemble du tableau de bord BottleNeck : chiffre d’affaires de 2,44 millions d’euros, marge de 1,15 million, 96 000 unités vendues, évolution mensuelle et chiffre d’affaires par segment." loading="lazy" width="1600" height="900"><figcaption>La vue d’ensemble du tableau de bord : 2,44 M€ de chiffre d’affaires sur douze mois, porté très majoritairement par le vin.</figcaption></figure>
+<h2>Résultats et impact</h2>
+<p>Le tableau de bord a mis en évidence 176 k€ de stock dormant, soit un quart de la valeur du stock, concentré sur quelques champagnes d’un même producteur. Il a aussi montré une érosion de 1,5 point de marge sur l’année et des promotions placées sur les mois déjà forts, avec un taux de marque de 32 % sur les ventes en promotion contre 47 % en moyenne.</p>
+<p>Le contrôle qualité automatisé détecte 100 % des erreurs injectées dans l’export dégradé, sans fausse alerte. Il a surtout révélé que le nettoyage initial avait supprimé un produit réel avec ses ventes, faussant le chiffre d’affaires présenté à la direction et créant une fausse alerte de « produit fantôme », et que quatre produits étaient vendus sous leur coût d’achat. Une entité HTML visible dans un libellé du tableau de bord (« &amp;amp; ») fait d’ailleurs partie des défauts que les nouvelles règles détectent avant qu’ils n’atteignent les rapports.</p><figure><img src="../assets/img/bottleneck-stocks.jpg" alt="Page Stocks et commandes du tableau de bord : valeur du stock de 716,72 milliers d’euros, couverture de 6,3 mois, rotation annuelle de 2,34 et stock dormant de 175,91 milliers d’euros." loading="lazy" width="1600" height="900"><figcaption>La page des stocks : la valeur immobilisée se concentre sur quelques références de champagne à faible rotation.</figcaption></figure><figure><img src="../assets/img/bottleneck-promotions.jpg" alt="Page Promotions du tableau de bord : 175 milliers d’euros de chiffre d’affaires en promotion, soit 7,2 %, taux de marque promotionnel de 32 %, indice d’uplift de 1,97." loading="lazy" width="1600" height="900"><figcaption>La page des promotions : les opérations doublent les volumes, mais au prix d’une marge nettement réduite.</figcaption></figure>
+<h2 class="limites">Limites et prochaines pistes</h2>
+<p>Les règles de validation n’ont été éprouvées que sur un mois de données réelles, et l’effet des promotions n’est mesuré que sur le mois de l’opération. Les prochaines étapes seraient d’exécuter le contrôle automatiquement à chaque nouvel export et de mesurer l’effet différé des promotions sur les ventes des mois suivants.</p>
+<h2>Livrables</h2><p><a href="https://github.com/PaulChipponi/bottleneck-data-quality">Dépôt GitHub du projet amélioré : notebook, règles de validation, journal des essais IA</a></p>
+<nav class="suite" aria-label="Autres projets"><span></span><a href="uoi-games.html">Projet suivant : UOI Games</a></nav></article>
+</main>
+<footer class="pied"><div class="enveloppe">
+<p>Portfolio réalisé dans le cadre du parcours Business Intelligence Analyst d’OpenClassrooms. Les entreprises et les données des projets sont fictives.</p>
+<p><a href="https://github.com/PaulChipponi">GitHub</a></p>
+</div></footer>
+</body>
+</html>
